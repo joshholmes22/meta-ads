@@ -4,6 +4,8 @@ const cors = require("cors");
 const campaignRouter = require("./routes/campaignRoutes");
 const targetingRouter = require("./routes/targetingRoutes");
 const adSetRouter = require("./routes/adSetRoutes");
+const insightsRouter = require("./routes/insightsRoutes");
+const adRoutes = require("./routes/adRoutes");
 
 const app = express();
 
@@ -28,5 +30,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/campaigns", campaignRouter);
 app.use("/api/v1/targeting", targetingRouter);
 app.use("/api/v1/adSets", adSetRouter);
+app.use("/api/v1/insights", insightsRouter);
+app.use("/api/v1/ads", adRoutes);
 
 module.exports = app;

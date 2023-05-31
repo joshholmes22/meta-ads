@@ -6,6 +6,7 @@ const id = `act_${process.env.AD_ACCOUNT_ID}`;
 
 exports.getCampaigns = async (req, res) => {
   try {
+    console.log(id, access_token);
     const response = await axios.get(
       `https://graph.facebook.com/v17.0/${id}/campaigns?access_token=${access_token}`
     );
@@ -14,7 +15,7 @@ exports.getCampaigns = async (req, res) => {
       .status(200)
       .json({ message: "getCampaigns", campaigns: response.data.data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 };
